@@ -831,7 +831,7 @@ uniplot2 <- ggplot(resdat_ivw) +
                      breaks = breaks_log()) +
   geom_hline(yintercept = 1, linetype = "dashed") + 
   theme_bw() +
-  scale_color_discrete(name = "Exposure") +
+  xlab("Outcome/Exposure") +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         legend.position = "inside",
         legend.position.inside = c(.95, .05),
