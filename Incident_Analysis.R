@@ -560,6 +560,8 @@ for(k in 1:20){
   }
 }
 
+options(ieugwasr_api = 'gwas-api.mrcieu.ac.uk/')
+
 #Reformatting Menarche data for processing (clumping SNPs etc)
 Clump.datA<-format_data(
   refcomb1,
