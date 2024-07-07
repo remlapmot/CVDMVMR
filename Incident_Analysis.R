@@ -804,6 +804,7 @@ resdat_ivw$index[1:13]<-c(seq(1,13,1))*-1
 
 resdat_ivw$index[14:17]<-c(5.2,6.2,7.2,4.2)*-1
 
+save(resdat_ivw, file = 'resdat_ivw.Rdata', compress = 'xz')
 
 uniplot1<-ggplot(resdat_ivw)+geom_point(aes(x=index, y=or,shape=method))+
   coord_flip()+geom_errorbar(aes(ymin=orlci_95,ymax=oruci_95,x=index),width=0,orientation = "x")+
