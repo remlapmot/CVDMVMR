@@ -822,16 +822,20 @@ dev.off()
 
 # Attempt to recreate plot and use log scale x-axis
 library(scales)
+
 uniplot2 <- ggplot(resdat_ivw) +
   geom_point(aes(x = index, y = or, shape = method)) +
   coord_flip() +
   geom_errorbar(aes(ymin = orlci_95, ymax = oruci_95, x = index), width = 0, orientation = "x") +
-  scale_y_continuous(name = "Effect (odds ratio)", transform = 'log',
+  scale_y_continuous(name = "Odds ratio (IVW and MVMR estimates)", transform = 'log',
                      breaks = breaks_log()) +
   geom_hline(yintercept = 1, linetype = "dashed") + 
   theme_bw() +
   scale_color_discrete(name = "Exposure") +
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        legend.position = "inside",
+        legend.position.inside = c(.95, .05),
+        legend.title = element_blank())
 uniplot2
 
 # Plot logORs and exponentiate x-axis
