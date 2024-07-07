@@ -819,3 +819,30 @@ uniplot1<-ggplot(resdat_ivw)+geom_point(aes(x=index, y=or,shape=method))+
 png("Figure6_1.png",width=5,height=5,units="in",res=200)
 uniplot1
 dev.off()
+
+# Attempt to recreate plot and use log scale x-axis
+library(scales)
+uniplot2 <- ggplot(resdat_ivw) +
+  geom_point(aes(x = index, y = or, shape = method)) +
+  coord_flip() +
+  geom_errorbar(aes(ymin = orlci_95, ymax = oruci_95, x = index), width = 0, orientation = "x") +
+  scale_y_continuous(name = "Effect (odds ratio)", transform = 'log',
+                     breaks = breaks_log()) +
+  geom_hline(yintercept = 1, linetype = "dashed") + 
+  theme_bw() +
+  scale_color_discrete(name = "Exposure") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+uniplot2
+
+# Plot logORs and exponentiate x-axis
+uniplot3 <- ggplot(resdat_ivw) +
+  geom_point(aes(x = index, y = logor, shape = method)) +
+  coord_flip() +
+  geom_errorbar(aes(ymin = logorlci_95, ymax = logoruci_95, x = index), width = 0, orientation = "x") +
+  scale_y_continuous(name = "Effect (odds ratio)", transform = 'exp',
+                     labels = transform) +
+  geom_hline(yintercept = 1, linetype = "dashed") + 
+  theme_bw() +
+  scale_color_discrete(name = "Exposure") +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+uniplot3
