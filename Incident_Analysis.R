@@ -804,6 +804,10 @@ resdat_ivw$index[1:13]<-c(seq(1,13,1))*-1
 
 resdat_ivw$index[14:17]<-c(5.2,6.2,7.2,4.2)*-1
 
+resdat_ivw$logor <- log(resdat_ivw$or)
+resdat_ivw$logorlci_95 <- log(resdat_ivw$orlci_95)
+resdat_ivw$logoruci_95 <- log(resdat_ivw$oruci_95)
+
 save(resdat_ivw, file = 'resdat_ivw.Rdata', compress = 'xz')
 
 uniplot1<-ggplot(resdat_ivw)+geom_point(aes(x=index, y=or,shape=method))+
