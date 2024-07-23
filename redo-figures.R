@@ -93,8 +93,8 @@ fig3 <- forestplot(
   estimate = logor,
   se = logorse,
   logodds = TRUE,
-  colour = Estimator,
-  shape = Estimator,
+  # colour = Estimator,
+  # shape = Estimator,
   xlab = "Odds ratio with 95% CI (IVW estimates)"
 ) + 
   ggplot2::theme_minimal() + 
