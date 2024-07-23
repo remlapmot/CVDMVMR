@@ -560,7 +560,8 @@ for(k in 1:20){
   }
 }
 
-options(ieugwasr_api = 'gwas-api.mrcieu.ac.uk/')
+# options(ieugwasr_api = 'gwas-api.mrcieu.ac.uk/')
+options(ieugwasr_api = "api.opengwas.io/")
 
 #Reformatting Menarche data for processing (clumping SNPs etc)
 Clump.datA<-format_data(
