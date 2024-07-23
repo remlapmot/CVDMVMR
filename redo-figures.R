@@ -72,3 +72,6 @@ fig5 <- forestplot(
 fig5
 ggplot2::ggsave('img/fig5.pdf')
 ggplot2::ggsave('img/fig5.tiff')
+
+# Figure 3 ----
+
