@@ -75,3 +75,35 @@ ggplot2::ggsave('img/fig5.tiff')
 
 # Figure 3 ----
 
+db <- read_excel('redo-figures.xlsx', sheet = 'fig3')
+
+db <- db |> 
+  mutate(logor = log(oddsratio),
+         logorlow = log(orlowci),
+         logorupp = log(oruppci))
+
+db <- db |> 
+  mutate(logorse = (logorupp - logorlow)/(2 * 1.96))
+
+# Forestplot
+
+fig3 <- forestplot(
+  df = db,
+  name = Exposure,
+  estimate = logor,
+  se = logorse,
+  logodds = TRUE,
+  colour = Estimator,
+  shape = Estimator,
+  xlab = "Odds ratio with 95% CI (IVW estimates)"
+) + 
+  ggplot2::theme_minimal() + 
+  ggplot2::scale_colour_grey(start = 0, end = .6) +
+  ggforce::facet_col(
+    facets = ~Outcome,
+    scales = "free_y",
+    space = "free"
+  )
+fig3
+ggplot2::ggsave('img/fig3.pdf')
+ggplot2::ggsave('img/fig3.tiff')
