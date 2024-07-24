@@ -35,8 +35,8 @@ fig6 <- forestplot(
   ggplot2::theme_minimal() + 
   ggplot2::scale_colour_grey(start = 0, end = .6)
 fig6
-ggplot2::ggsave('img/fig6.pdf')
-ggplot2::ggsave('img/fig6.tiff')
+ggplot2::ggsave('img/fig6.pdf', bg = 'white')
+ggplot2::ggsave('img/fig6.tiff', bg = 'white')
 
 # Figure 5 ----
 
@@ -70,8 +70,8 @@ fig5 <- forestplot(
     space = "free"
   )
 fig5
-ggplot2::ggsave('img/fig5.pdf')
-ggplot2::ggsave('img/fig5.tiff')
+ggplot2::ggsave('img/fig5.pdf', bg = 'white')
+ggplot2::ggsave('img/fig5.tiff', bg = 'white')
 
 # Figure 3 ----
 
@@ -97,7 +97,7 @@ fig3 <- forestplot(
   # shape = Estimator,
   xlab = "Odds ratio with 95% CI (IVW estimates)"
 ) + 
-  ggplot2::theme_minimal() + 
+  ggplot2::theme_bw() + 
   ggplot2::scale_colour_grey(start = 0, end = .6) +
   ggforce::facet_col(
     facets = ~Outcome,
@@ -105,5 +105,5 @@ fig3 <- forestplot(
     space = "free"
   )
 fig3
-ggplot2::ggsave('img/fig3.pdf')
-ggplot2::ggsave('img/fig3.tiff')
+ggplot2::ggsave('img/fig3.pdf', bg = 'white')
+ggplot2::ggsave('img/fig3.tiff', bg = 'white')
